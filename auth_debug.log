@@ -1,0 +1,35 @@
+[2026-07-17T17:27:55.135Z] --- Auth Middleware Triggered ---
+[2026-07-17T17:27:55.138Z] Request URL: GET /api/documents
+[2026-07-17T17:27:55.139Z] Authorization Header: Missing
+[2026-07-17T17:27:55.140Z] Raw Cookie Header: better-auth.session_token=nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb%2F6HnWIyfGRU92U1Z8%3D; __next_hmr_refresh_hash__=180
+[2026-07-17T17:27:55.142Z] Cookie-extracted Token: Found
+[2026-07-17T17:27:55.142Z] Final token parsed for DB validation: nXdA4JcJ...
+[2026-07-17T17:27:55.193Z] Verification failed: Session record not found in DB for token: nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb/6HnWIyfGRU92U1Z8=
+[2026-07-17T17:27:56.364Z] --- Auth Middleware Triggered ---
+[2026-07-17T17:27:56.366Z] Request URL: GET /api/documents
+[2026-07-17T17:27:56.367Z] Authorization Header: Missing
+[2026-07-17T17:27:56.384Z] Raw Cookie Header: better-auth.session_token=nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb%2F6HnWIyfGRU92U1Z8%3D; __next_hmr_refresh_hash__=180
+[2026-07-17T17:27:56.393Z] Cookie-extracted Token: Found
+[2026-07-17T17:27:56.394Z] Final token parsed for DB validation: nXdA4JcJ...
+[2026-07-17T17:27:56.467Z] Verification failed: Session record not found in DB for token: nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb/6HnWIyfGRU92U1Z8=
+[2026-07-17T17:28:05.628Z] --- Auth Middleware Triggered ---
+[2026-07-17T17:28:05.629Z] Request URL: GET /api/documents
+[2026-07-17T17:28:05.630Z] Authorization Header: Missing
+[2026-07-17T17:28:05.631Z] Raw Cookie Header: better-auth.session_token=nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb%2F6HnWIyfGRU92U1Z8%3D; __next_hmr_refresh_hash__=180
+[2026-07-17T17:28:05.633Z] Cookie-extracted Token: Found
+[2026-07-17T17:28:05.634Z] Final token parsed for DB validation: nXdA4JcJ...
+[2026-07-17T17:28:05.688Z] Verification failed: Session record not found in DB for token: nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb/6HnWIyfGRU92U1Z8=
+[2026-07-17T17:28:06.794Z] --- Auth Middleware Triggered ---
+[2026-07-17T17:28:06.796Z] Request URL: GET /api/documents
+[2026-07-17T17:28:06.797Z] Authorization Header: Missing
+[2026-07-17T17:28:06.797Z] Raw Cookie Header: better-auth.session_token=nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb%2F6HnWIyfGRU92U1Z8%3D; __next_hmr_refresh_hash__=180
+[2026-07-17T17:28:06.798Z] Cookie-extracted Token: Found
+[2026-07-17T17:28:06.798Z] Final token parsed for DB validation: nXdA4JcJ...
+[2026-07-17T17:28:06.852Z] Verification failed: Session record not found in DB for token: nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb/6HnWIyfGRU92U1Z8=
+[2026-07-17T17:28:19.994Z] --- Auth Middleware Triggered ---
+[2026-07-17T17:28:19.995Z] Request URL: POST /api/documents/upload
+[2026-07-17T17:28:19.996Z] Authorization Header: Missing
+[2026-07-17T17:28:19.996Z] Raw Cookie Header: better-auth.session_token=nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb%2F6HnWIyfGRU92U1Z8%3D; __next_hmr_refresh_hash__=180
+[2026-07-17T17:28:19.997Z] Cookie-extracted Token: Found
+[2026-07-17T17:28:19.998Z] Final token parsed for DB validation: nXdA4JcJ...
+[2026-07-17T17:28:20.051Z] Verification failed: Session record not found in DB for token: nXdA4JcJqlGZEgy7nYA4hhhNbB0bi1Af.g15JMZe1OiQ0N349wfePKTwIgb/6HnWIyfGRU92U1Z8=
