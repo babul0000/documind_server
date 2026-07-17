@@ -24,7 +24,7 @@ const writeLog = (msg: string) => {
 /**
  * Authentication middleware adapted to Better Auth database sessions.
  * Inspects session records inside MongoDB and maps active sessions to Express request contexts.
- * Outputs step-by-step diagnostic records to auth_debug.log.
+ * Supports token extraction from both Authorization headers and HTTP cookies.
  */
 export const authenticateToken = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
   const authHeader = req.headers['authorization'];
@@ -57,7 +57,12 @@ export const authenticateToken = async (req: AuthRequest, res: Response, next: N
     }
   }
 
-  writeLog(`Final token parsed for DB validation: ${token ? token.substring(0, 8) + '...' : 'None'}`);
+  // Parse the raw token value from Better Auth's signed format (<token>.<signature>)
+  if (token) {
+    token = decodeURIComponent(token).split('.')[0];
+  }
+
+  writeLog(`Final token parsed for DB validation: ${token ? token : 'None'}`);
 
   if (!token) {
     writeLog('Verification failed: Access token missing.');
