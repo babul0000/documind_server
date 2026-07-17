@@ -1,14 +1,23 @@
-import pdfParse from 'pdf-parse';
-import mammoth from 'mammoth';
+import mammoth = require('mammoth');
+
+// Load pdf-parse using direct CommonJS require to avoid TypeScript module resolution warnings
+const { PDFParse } = require('pdf-parse') as any;
 
 /**
  * Extracts raw text from document buffers based on the MIME type.
  * Supports PDF, DOCX, and text files.
+ * Custom built for pdf-parse version 2.4.5 class-based API.
  */
 export const parseDocument = async (buffer: Buffer, mimeType: string): Promise<string> => {
   if (mimeType === 'application/pdf') {
-    const data = await pdfParse(buffer);
-    return data.text || '';
+    const parser = new PDFParse({ data: buffer });
+    try {
+      const result = await parser.getText();
+      return result.text || '';
+    } finally {
+      // Always destroy parser to release underlying PDFJS resources
+      await parser.destroy().catch(() => {});
+    }
   } else if (
     mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
     mimeType === 'application/msword'

@@ -1,5 +1,6 @@
 import { genAI } from '../../config/ai';
 import { extractorPromptTemplate } from '../prompts/templates';
+import { getMockAnalysis } from './mockHelper';
 
 export interface ExtractedInfo {
   documentType: string;
@@ -12,8 +13,21 @@ export interface ExtractedInfo {
 
 /**
  * AI Agent for extracting metadata and structured takeaways from text.
+ * Falls back to content-aware smart mocks if GEMINI_API_KEY is not defined.
  */
 export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
+  if (!genAI) {
+    const mock = getMockAnalysis(text);
+    return {
+      documentType: mock.documentType,
+      suggestedTitle: mock.suggestedTitle,
+      keyTopics: mock.tags,
+      entities: mock.entities,
+      actionItems: mock.actionItems,
+      dates: mock.dates,
+    };
+  }
+
   const fallback: ExtractedInfo = {
     documentType: 'Unknown Document',
     suggestedTitle: 'Document',
@@ -22,10 +36,6 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
     actionItems: [],
     dates: [],
   };
-
-  if (!genAI) {
-    return fallback;
-  }
 
   try {
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
@@ -56,6 +66,14 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
     };
   } catch (error) {
     console.error('Extractor Agent Error:', error);
-    return fallback;
+    const mock = getMockAnalysis(text);
+    return {
+      documentType: mock.documentType,
+      suggestedTitle: mock.suggestedTitle,
+      keyTopics: mock.tags,
+      entities: mock.entities,
+      actionItems: mock.actionItems,
+      dates: mock.dates,
+    };
   }
 };

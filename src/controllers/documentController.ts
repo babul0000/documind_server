@@ -74,6 +74,7 @@ export const uploadDocument = async (req: AuthRequest, res: Response, next: Next
     try {
       extractedText = await parseDocument(buffer, mimetype);
     } catch (err: any) {
+      console.error('❌ FILE EXTRACTION FAILED DETAILS:', err);
       res.status(422).json({ error: `File extraction failed: ${err.message}` });
       return;
     }
@@ -248,3 +249,47 @@ export const deleteDocument = async (req: AuthRequest, res: Response, next: Next
     next(error);
   }
 };
+
+/**
+ * Update document properties (title, category, tags).
+ * Used for dynamic user-edits and saving smart classifications.
+ */
+export const updateDocument = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ error: 'Unauthorized' });
+      return;
+    }
+
+    const { title, category, tags } = req.body;
+    const updateData: any = {};
+    
+    if (title !== undefined) updateData.title = title;
+    if (category !== undefined) updateData.category = category;
+    if (tags !== undefined) updateData.tags = tags;
+
+    const document = await Document.findOneAndUpdate(
+      { _id: req.params.id, userId: req.user.userId },
+      { $set: updateData },
+      { new: true }
+    );
+
+    if (!document) {
+      res.status(404).json({ error: 'Document not found' });
+      return;
+    }
+
+    res.status(200).json({
+      message: 'Document updated successfully',
+      document: {
+        id: document._id.toString(),
+        title: document.title,
+        category: document.category,
+        tags: document.tags,
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+

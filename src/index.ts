@@ -7,6 +7,7 @@ import authRoutes from './routes/auth';
 import documentRoutes from './routes/documents';
 import chatRoutes from './routes/chats';
 import analyticsRoutes from './routes/analytics';
+import aiRoutes from './routes/ai';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/chats', chatRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Apply Centralized Error Handler Middleware (placed after routes)
 app.use(errorHandler as any);
