@@ -7,6 +7,8 @@ import { AIReport } from '../models/AIReport';
 import { Review } from '../models/Review';
 import { parseDocument } from '../services/documentParser';
 import { geminiService } from '../services/geminiService';
+import { genAI, isAIConfigured } from '../config/ai';
+import { chatPromptTemplate } from '../ai/prompts/templates';
 
 /**
  * Background worker to run AI analysis (summary & metadata extraction)
@@ -396,7 +398,7 @@ export const getPublicRelatedDocuments = async (req: Request, res: Response, nex
  */
 export const getReviews = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const reviews = await Review.find({ documentId: req.params.id }).sort({ createdAt: -1 });
+    const reviews = await Review.find({ documentId: req.params.id } as any).sort({ createdAt: -1 });
     res.status(200).json({ reviews });
   } catch (error) {
     next(error);
@@ -498,11 +500,11 @@ export const chatWithAgentPublicStream = async (req: Request, res: Response, nex
     ];
 
     try {
-      if (!genAI || !process.env.GEMINI_API_KEY) {
+      if (!isAIConfigured()) {
         throw new Error('Invalid Gemini Key. Use fallback mock.');
       }
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
       const prompt = chatPromptTemplate(document.textContent, formattedHistory, text);
       const resultStream = await model.generateContentStream(prompt);
 
@@ -662,11 +664,11 @@ export const generalChatStream = async (req: Request, res: Response, next: NextF
     ];
 
     try {
-      if (!genAI || !process.env.GEMINI_API_KEY) {
+      if (!isAIConfigured()) {
         throw new Error('Invalid Gemini Key. Use fallback mock.');
       }
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
       
       const systemInstruction = `You are DocuMind AI, the official virtual assistant for DocuMind AI - the AI Knowledge Intelligence Platform.
 DocuMind lets users upload PDFs, Word files (DOCX), and text notes (TXT) up to 10MB.
@@ -674,7 +676,7 @@ You have access to the user's active database documents list provided in "Active
 Answer user questions organically based on this database state. Do not invent files. If they ask what files they have, list them.
 Be concise, professional, and helpful.`;
 
-      const prompt = `${systemInstruction}\n\nActive Database State Context:\n${userDocumentsContext}\n\nChat History:\n${formattedHistory.map(h => `${h.sender === 'user' ? 'User' : 'Assistant'}: ${h.text}`).join('\n')}\n\nUser: ${text}\nAssistant:`;
+      const prompt = `${systemInstruction}\n\nActive Database State Context:\n${userDocumentsContext}\n\nChat History:\n${formattedHistory.map((h: any) => `${h.sender === 'user' ? 'User' : 'Assistant'}: ${h.text}`).join('\n')}\n\nUser: ${text}\nAssistant:`;
       const resultStream = await model.generateContentStream(prompt);
 
       for await (const chunk of resultStream.stream) {

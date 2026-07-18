@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 import { recommendationPromptTemplate } from '../prompts/templates';
 
 export interface RecommendationResult {
@@ -19,7 +19,7 @@ export const generateRecommendations = async (
   tags: string[],
   otherDocs: { id: string; title: string; category: string; tags: string[] }[]
 ): Promise<RecommendationResult> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     const related = otherDocs
       .filter((d) => d.category === category || d.tags.some((t) => tags.includes(t)))
       .slice(0, 2)
@@ -56,7 +56,7 @@ export const generateRecommendations = async (
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = recommendationPromptTemplate(docTitle, docSummary, category, tags, otherDocs);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

@@ -28,3 +28,12 @@ export const genAI: any = new Proxy({} as any, {
     }
   }
 });
+
+/**
+ * Checks if Gemini API Key is configured and is not the default placeholder.
+ */
+export const isAIConfigured = (): boolean => {
+  const apiKey = process.env.GEMINI_API_KEY;
+  return !!apiKey && apiKey !== 'your_gemini_api_key_here';
+};
+

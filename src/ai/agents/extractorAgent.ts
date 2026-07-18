@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 import { extractorPromptTemplate } from '../prompts/templates';
 import { getMockAnalysis } from './mockHelper';
 
@@ -18,7 +18,7 @@ export interface ExtractedInfo {
  * Falls back to content-aware smart mocks if GEMINI_API_KEY is not defined.
  */
 export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     const mock = getMockAnalysis(text);
     return {
       documentType: mock.documentType,
@@ -44,7 +44,7 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = extractorPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let rawResponse = result.response.text() || '{}';

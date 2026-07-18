@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 import { chatPromptTemplate, chatWithFollowUpsPromptTemplate } from '../prompts/templates';
 import { getMockAnalysis } from './mockHelper';
 
@@ -76,13 +76,13 @@ export const askDocumentQuestion = async (
   history: { sender: string; text: string }[],
   currentQuestion: string
 ): Promise<string> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     const mock = getMockChatResponse(text, currentQuestion);
     return mock.response;
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = chatPromptTemplate(text, history, currentQuestion);
     const result = await model.generateContent(prompt);
     return result.response.text() || 'I was unable to formulate an answer.';
@@ -102,7 +102,7 @@ export const askDocumentQuestionWithFollowUps = async (
   history: { sender: string; text: string }[],
   currentQuestion: string
 ): Promise<ChatAgentResult> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     return getMockChatResponse(text, currentQuestion);
   }
 
@@ -116,7 +116,7 @@ export const askDocumentQuestionWithFollowUps = async (
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = chatWithFollowUpsPromptTemplate(text, history, currentQuestion);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

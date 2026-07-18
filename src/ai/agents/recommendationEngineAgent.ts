@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 
 export interface RecommendationEngineResult {
   relatedDocuments: { documentId: string; title: string; reason: string }[];
@@ -19,12 +19,12 @@ export const runRecommendationEngine = async (
 ): Promise<RecommendationEngineResult> => {
   
   // Smart fallback mock if genAI is not configured
-  if (!genAI) {
+  if (!isAIConfigured()) {
     return generateFallbackRecommendations(documents, refinement);
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
 
     const documentsInput = documents.map(d => ({
       id: d.id,
@@ -108,7 +108,7 @@ const generateFallbackRecommendations = (
 
   // 1. Related Documents
   const relatedDocuments: any[] = [];
-  if (targetDocs.length >= 2) {
+  if (targetDocs.length >= 2 && targetDocs[0] && targetDocs[1]) {
     relatedDocuments.push({
       documentId: targetDocs[0].id,
       title: targetDocs[0].title,
@@ -120,11 +120,13 @@ const generateFallbackRecommendations = (
   const nextToRead: any[] = [];
   if (targetDocs.length > 0) {
     const firstDoc = targetDocs[targetDocs.length - 1]; // Oldest or newest
-    nextToRead.push({
-      documentId: firstDoc.id,
-      title: firstDoc.title,
-      reason: `Based on your library status, analyzing ${firstDoc.title} will provide foundational insights.`
-    });
+    if (firstDoc) {
+      nextToRead.push({
+        documentId: firstDoc.id,
+        title: firstDoc.title,
+        reason: `Based on your library status, analyzing ${firstDoc.title} will provide foundational insights.`
+      });
+    }
   }
 
   const categoryLabel = targetDocs[0]?.category || 'General';

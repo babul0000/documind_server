@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 import { analyzerPromptTemplate } from '../prompts/templates';
 import { getMockAnalysis } from './mockHelper';
 
@@ -15,7 +15,7 @@ export interface AnalyzerResult {
  * Falls back to content-aware smart mocks if GEMINI_API_KEY is not defined.
  */
 export const analyzeDocumentText = async (text: string): Promise<AnalyzerResult> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     const mock = getMockAnalysis(text);
     return {
       summary: mock.summary,
@@ -33,7 +33,7 @@ export const analyzeDocumentText = async (text: string): Promise<AnalyzerResult>
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = analyzerPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

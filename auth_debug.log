@@ -641,3 +641,37 @@
 [2026-07-18T17:30:35.183Z] Final token parsed for DB validation: UsA8YGt9ocDGmKH6TlqadAwhyNRlIJZ9
 [2026-07-18T17:30:35.236Z] Session found in DB. UserId in session: 6a5bb838b39ecc1162016575
 [2026-07-18T17:30:35.285Z] Verification succeeded! User authenticated: demo@documind.com (ID: 6a5bb838b39ecc1162016575)
+[2026-07-18T18:21:11.204Z] --- Auth Middleware Triggered ---
+[2026-07-18T18:21:11.205Z] Request URL: GET /api/documents
+[2026-07-18T18:21:11.205Z] Authorization Header: Missing
+[2026-07-18T18:21:11.205Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D
+[2026-07-18T18:21:11.206Z] Cookie-extracted Token: Found
+[2026-07-18T18:21:11.206Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T18:21:11.253Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T18:21:11.302Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T18:57:22.593Z] --- Auth Middleware Triggered ---
+[2026-07-18T18:57:22.594Z] Request URL: GET /api/documents
+[2026-07-18T18:57:22.595Z] Authorization Header: Missing
+[2026-07-18T18:57:22.595Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=29
+[2026-07-18T18:57:22.596Z] Cookie-extracted Token: Found
+[2026-07-18T18:57:22.598Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T18:57:22.907Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T18:57:22.952Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T18:58:09.269Z] --- Auth Middleware Triggered ---
+[2026-07-18T18:58:09.270Z] Request URL: POST /api/documents/upload
+[2026-07-18T18:58:09.270Z] Authorization Header: Missing
+[2026-07-18T18:58:09.271Z] Raw Cookie Header: Missing
+[2026-07-18T18:58:09.272Z] Final token parsed for DB validation: None
+[2026-07-18T18:58:09.273Z] Verification failed: Access token missing.
+[2026-07-18T18:58:13.407Z] --- Auth Middleware Triggered ---
+[2026-07-18T18:58:13.412Z] Request URL: POST /api/documents/upload
+[2026-07-18T18:58:13.413Z] Authorization Header: Missing
+[2026-07-18T18:58:13.414Z] Raw Cookie Header: Missing
+[2026-07-18T18:58:13.414Z] Final token parsed for DB validation: None
+[2026-07-18T18:58:13.415Z] Verification failed: Access token missing.
+[2026-07-18T18:58:26.397Z] --- Auth Middleware Triggered ---
+[2026-07-18T18:58:26.398Z] Request URL: POST /api/documents/upload
+[2026-07-18T18:58:26.399Z] Authorization Header: Missing
+[2026-07-18T18:58:26.399Z] Raw Cookie Header: Missing
+[2026-07-18T18:58:26.400Z] Final token parsed for DB validation: None
+[2026-07-18T18:58:26.401Z] Verification failed: Access token missing.

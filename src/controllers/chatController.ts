@@ -3,7 +3,7 @@ import { AuthRequest } from '../middleware/auth';
 import { Document } from '../models/Document';
 import { Conversation } from '../models/Conversation';
 import { geminiService } from '../services/geminiService';
-import { genAI } from '../config/ai';
+import { genAI, isAIConfigured } from '../config/ai';
 import { chatPromptTemplate } from '../ai/prompts/templates';
 
 /**
@@ -231,7 +231,7 @@ export const sendMessageStream = async (req: AuthRequest, res: Response, next: N
       'List the main topics discussed'
     ];
 
-    if (!genAI) {
+    if (!isAIConfigured()) {
       // Simulate live streaming word by word for mock responses
       const words = mockResponseText.split(' ');
       let index = 0;
@@ -262,7 +262,7 @@ export const sendMessageStream = async (req: AuthRequest, res: Response, next: N
     }
 
     // 3. Setup Gemini Generative Model Stream
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = chatPromptTemplate(document.textContent, formattedHistory, text);
     const resultStream = await model.generateContentStream(prompt);
 

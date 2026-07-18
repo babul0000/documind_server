@@ -1,4 +1,4 @@
-import { genAI } from '../../config/ai';
+import { genAI, isAIConfigured } from '../../config/ai';
 import { classificationPromptTemplate } from '../prompts/templates';
 import { getMockAnalysis } from './mockHelper';
 
@@ -14,7 +14,7 @@ export interface ClassificationResult {
  * Falls back to content-aware smart mocks if GEMINI_API_KEY is not defined.
  */
 export const classifyDocumentText = async (text: string): Promise<ClassificationResult> => {
-  if (!genAI) {
+  if (!isAIConfigured()) {
     const mock = getMockAnalysis(text);
     return {
       category: mock.category,
@@ -30,7 +30,7 @@ export const classifyDocumentText = async (text: string): Promise<Classification
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
     const prompt = classificationPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';
