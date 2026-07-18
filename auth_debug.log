@@ -675,3 +675,267 @@
 [2026-07-18T18:58:26.399Z] Raw Cookie Header: Missing
 [2026-07-18T18:58:26.400Z] Final token parsed for DB validation: None
 [2026-07-18T18:58:26.401Z] Verification failed: Access token missing.
+[2026-07-18T19:02:38.870Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:02:38.871Z] Request URL: POST /api/documents/upload
+[2026-07-18T19:02:38.872Z] Authorization Header: Missing
+[2026-07-18T19:02:38.873Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=60
+[2026-07-18T19:02:38.873Z] Cookie-extracted Token: Found
+[2026-07-18T19:02:38.874Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:02:38.933Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:02:38.977Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:11:49.863Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:11:49.863Z] Request URL: GET /api/documents
+[2026-07-18T19:11:49.864Z] Authorization Header: Missing
+[2026-07-18T19:11:49.864Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:11:49.865Z] Cookie-extracted Token: Found
+[2026-07-18T19:11:49.865Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:11:49.906Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:11:50.215Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:04.869Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:04.870Z] Request URL: GET /api/chats/conversations?documentId=6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:12:04.870Z] Authorization Header: Missing
+[2026-07-18T19:12:04.871Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:04.871Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:04.872Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:04.873Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:04.874Z] Request URL: GET /api/documents/6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:12:04.875Z] Authorization Header: Missing
+[2026-07-18T19:12:04.875Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:04.875Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:04.876Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:04.913Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:04.959Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:05.221Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:05.263Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:07.352Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:07.353Z] Request URL: POST /api/chats/message/stream
+[2026-07-18T19:12:07.354Z] Authorization Header: Missing
+[2026-07-18T19:12:07.354Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:07.355Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:07.356Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:07.400Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:07.444Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:15.061Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:15.062Z] Request URL: GET /api/chats/conversations?documentId=6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:12:15.062Z] Authorization Header: Missing
+[2026-07-18T19:12:15.062Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:15.063Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:15.063Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:15.066Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:15.067Z] Request URL: GET /api/chats/conversations/6a5bd007daf625fd9c4cb125/messages
+[2026-07-18T19:12:15.067Z] Authorization Header: Missing
+[2026-07-18T19:12:15.067Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:15.068Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:15.068Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:15.104Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:15.109Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:15.148Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:15.152Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:31.753Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:31.754Z] Request URL: POST /api/chats/message/stream
+[2026-07-18T19:12:31.755Z] Authorization Header: Missing
+[2026-07-18T19:12:31.755Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:31.756Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:31.757Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:31.800Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:31.844Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:52.491Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:52.491Z] Request URL: GET /api/chats/conversations?documentId=6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:12:52.492Z] Authorization Header: Missing
+[2026-07-18T19:12:52.492Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:52.493Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:52.493Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:52.495Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:12:52.495Z] Request URL: GET /api/chats/conversations/6a5bd007daf625fd9c4cb125/messages
+[2026-07-18T19:12:52.495Z] Authorization Header: Missing
+[2026-07-18T19:12:52.496Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:12:52.496Z] Cookie-extracted Token: Found
+[2026-07-18T19:12:52.496Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:12:52.536Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:52.582Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:12:52.795Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:12:52.838Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:13:07.984Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:13:07.985Z] Request URL: POST /api/chats/message/stream
+[2026-07-18T19:13:07.985Z] Authorization Header: Missing
+[2026-07-18T19:13:07.986Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:13:07.987Z] Cookie-extracted Token: Found
+[2026-07-18T19:13:07.987Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:13:08.033Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:13:08.082Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:13:20.545Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:13:20.546Z] Request URL: GET /api/chats/conversations?documentId=6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:13:20.546Z] Authorization Header: Missing
+[2026-07-18T19:13:20.547Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:13:20.547Z] Cookie-extracted Token: Found
+[2026-07-18T19:13:20.547Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:13:20.549Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:13:20.549Z] Request URL: GET /api/chats/conversations/6a5bd007daf625fd9c4cb125/messages
+[2026-07-18T19:13:20.550Z] Authorization Header: Missing
+[2026-07-18T19:13:20.550Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=101
+[2026-07-18T19:13:20.550Z] Cookie-extracted Token: Found
+[2026-07-18T19:13:20.551Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:13:20.591Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:13:20.602Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:13:20.645Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:13:20.648Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:15.345Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:15.345Z] Request URL: GET /api/chats/conversations?documentId=6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:16:15.346Z] Authorization Header: Missing
+[2026-07-18T19:16:15.347Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:15.347Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:15.347Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:15.349Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:15.350Z] Request URL: GET /api/documents
+[2026-07-18T19:16:15.350Z] Authorization Header: Missing
+[2026-07-18T19:16:15.351Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:15.351Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:15.352Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:15.353Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:15.353Z] Request URL: GET /api/documents/6a5bcdcfdaf625fd9c4cb123
+[2026-07-18T19:16:15.354Z] Authorization Header: Missing
+[2026-07-18T19:16:15.354Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:15.355Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:15.355Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:15.391Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:15.393Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:15.463Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:15.465Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:15.575Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:15.575Z] Request URL: GET /api/chats/conversations/6a5bd007daf625fd9c4cb125/messages
+[2026-07-18T19:16:15.575Z] Authorization Header: Missing
+[2026-07-18T19:16:15.576Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:15.576Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:15.576Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:15.620Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:15.653Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:15.673Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:15.693Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:19.440Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:19.441Z] Request URL: DELETE /api/chats/conversations/6a5bd007daf625fd9c4cb125
+[2026-07-18T19:16:19.442Z] Authorization Header: Missing
+[2026-07-18T19:16:19.442Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:19.442Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:19.443Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:19.489Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:19.537Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:16:19.605Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:16:19.606Z] Request URL: GET /api/chats/conversations/6a5bd007daf625fd9c4cb125/messages
+[2026-07-18T19:16:19.606Z] Authorization Header: Missing
+[2026-07-18T19:16:19.607Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=140
+[2026-07-18T19:16:19.607Z] Cookie-extracted Token: Found
+[2026-07-18T19:16:19.607Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:16:19.651Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:16:19.695Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:17:55.232Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:17:55.232Z] Request URL: GET /api/chats/conversations?documentId=6a5b6c6cfb9f65a19d1c2b06
+[2026-07-18T19:17:55.233Z] Authorization Header: Missing
+[2026-07-18T19:17:55.233Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:17:55.233Z] Cookie-extracted Token: Found
+[2026-07-18T19:17:55.234Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:17:55.236Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:17:55.236Z] Request URL: GET /api/documents/6a5b6c6cfb9f65a19d1c2b06
+[2026-07-18T19:17:55.237Z] Authorization Header: Missing
+[2026-07-18T19:17:55.237Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:17:55.238Z] Cookie-extracted Token: Found
+[2026-07-18T19:17:55.238Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:17:55.275Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:17:55.279Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:17:55.319Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:17:55.321Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:17:55.379Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:17:55.380Z] Request URL: GET /api/chats/conversations/6a5b6c88fb9f65a19d1c2b08/messages
+[2026-07-18T19:17:55.381Z] Authorization Header: Missing
+[2026-07-18T19:17:55.382Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:17:55.382Z] Cookie-extracted Token: Found
+[2026-07-18T19:17:55.383Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:17:55.429Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:17:55.474Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:17:57.925Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:17:57.926Z] Request URL: DELETE /api/chats/conversations/6a5b6c88fb9f65a19d1c2b08
+[2026-07-18T19:17:57.926Z] Authorization Header: Missing
+[2026-07-18T19:17:57.927Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:17:57.928Z] Cookie-extracted Token: Found
+[2026-07-18T19:17:57.928Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:17:57.971Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:17:58.016Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:17:58.069Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:17:58.070Z] Request URL: GET /api/chats/conversations/6a5b6c88fb9f65a19d1c2b08/messages
+[2026-07-18T19:17:58.070Z] Authorization Header: Missing
+[2026-07-18T19:17:58.071Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:17:58.071Z] Cookie-extracted Token: Found
+[2026-07-18T19:17:58.071Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:17:58.114Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:17:58.161Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:04.035Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:04.036Z] Request URL: POST /api/chats/message/stream
+[2026-07-18T19:18:04.036Z] Authorization Header: Missing
+[2026-07-18T19:18:04.037Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:04.038Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:04.039Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:04.099Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:04.145Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:08.967Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:08.968Z] Request URL: GET /api/chats/conversations?documentId=6a5b6c6cfb9f65a19d1c2b06
+[2026-07-18T19:18:08.968Z] Authorization Header: Missing
+[2026-07-18T19:18:08.969Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:08.969Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:08.970Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:08.971Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:08.971Z] Request URL: GET /api/chats/conversations/6a5b6c88fb9f65a19d1c2b08/messages
+[2026-07-18T19:18:08.971Z] Authorization Header: Missing
+[2026-07-18T19:18:08.972Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:08.972Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:08.972Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:09.014Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:09.020Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:09.058Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:09.079Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:35.074Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:35.074Z] Request URL: GET /api/recommendations
+[2026-07-18T19:18:35.075Z] Authorization Header: Missing
+[2026-07-18T19:18:35.075Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:35.076Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:35.076Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:35.078Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:35.079Z] Request URL: GET /api/recommendations/history
+[2026-07-18T19:18:35.080Z] Authorization Header: Missing
+[2026-07-18T19:18:35.080Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:35.081Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:35.081Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:35.120Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:35.122Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:35.163Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:35.165Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:18:58.723Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:18:58.723Z] Request URL: POST /api/recommendations/refine
+[2026-07-18T19:18:58.724Z] Authorization Header: Missing
+[2026-07-18T19:18:58.725Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:18:58.725Z] Cookie-extracted Token: Found
+[2026-07-18T19:18:58.726Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:18:58.770Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:18:58.815Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:19:08.062Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:19:08.063Z] Request URL: GET /api/recommendations
+[2026-07-18T19:19:08.064Z] Authorization Header: Missing
+[2026-07-18T19:19:08.065Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:19:08.065Z] Cookie-extracted Token: Found
+[2026-07-18T19:19:08.066Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:19:08.069Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:19:08.069Z] Request URL: GET /api/recommendations/history
+[2026-07-18T19:19:08.070Z] Authorization Header: Missing
+[2026-07-18T19:19:08.071Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:19:08.071Z] Cookie-extracted Token: Found
+[2026-07-18T19:19:08.072Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:19:08.119Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:19:08.121Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:19:08.167Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:19:08.169Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
+[2026-07-18T19:19:30.692Z] --- Auth Middleware Triggered ---
+[2026-07-18T19:19:30.693Z] Request URL: GET /api/analytics
+[2026-07-18T19:19:30.693Z] Authorization Header: Missing
+[2026-07-18T19:19:30.694Z] Raw Cookie Header: better-auth.session_token=14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC.0aDauahhsG6fTfJrPBtEWt8aUDOGAL%2B%2Fc%2BPqYlQ6Ox0%3D; __next_hmr_refresh_hash__=156
+[2026-07-18T19:19:30.695Z] Cookie-extracted Token: Found
+[2026-07-18T19:19:30.695Z] Final token parsed for DB validation: 14cuUPQ4913mKjsrLKvVtUsqx2xjtvGC
+[2026-07-18T19:19:30.745Z] Session found in DB. UserId in session: 6a5a582e36fe408e20787207
+[2026-07-18T19:19:30.789Z] Verification succeeded! User authenticated: babul@gmail.com (ID: 6a5a582e36fe408e20787207)
