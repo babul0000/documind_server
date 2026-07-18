@@ -16,6 +16,14 @@ const documentSchema = new Schema(
       type: String,
       default: '',
     },
+    shortDescription: {
+      type: String,
+      default: '',
+    },
+    imageUrl: {
+      type: String,
+      default: '',
+    },
     fileUrl: {
       type: String,
       default: '',

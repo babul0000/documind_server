@@ -1,11 +1,21 @@
 import { Router } from 'express';
-import { uploadDocument, listDocuments, getDocument, deleteDocument, updateDocument } from '../controllers/documentController';
+import { 
+  uploadDocument, listDocuments, getDocument, deleteDocument, updateDocument,
+  getPublicDocument, getPublicRelatedDocuments, getReviews, addReview, chatWithAgentPublic
+} from '../controllers/documentController';
 import { authenticateToken } from '../middleware/auth';
 import { upload } from '../middleware/upload';
 
 const router = Router();
 
-// Secure all document endpoints
+// Publicly accessible endpoints
+router.get('/public/:id', getPublicDocument as any);
+router.get('/public/:id/related', getPublicRelatedDocuments as any);
+router.get('/public/:id/reviews', getReviews as any);
+router.post('/public/:id/reviews', addReview as any);
+router.post('/public/:id/chat', chatWithAgentPublic as any);
+
+// Secure all document endpoints below this line
 router.use(authenticateToken as any);
 
 router.post('/upload', upload.single('file') as any, uploadDocument as any);

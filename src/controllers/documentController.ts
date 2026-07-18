@@ -1,8 +1,9 @@
-import { Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { AuthRequest } from '../middleware/auth';
 import { Document } from '../models/Document';
 import { Conversation } from '../models/Conversation';
 import { AIReport } from '../models/AIReport';
+import { Review } from '../models/Review';
 import { parseDocument } from '../services/documentParser';
 import { geminiService } from '../services/geminiService';
 
@@ -67,7 +68,7 @@ export const uploadDocument = async (req: AuthRequest, res: Response, next: Next
     }
 
     const { originalname, mimetype, size, buffer } = req.file;
-    const { title, description, category } = req.body;
+    const { title, description, category, shortDescription, imageUrl } = req.body;
 
     // 1. Extract raw text from buffer based on file type
     let extractedText = '';
@@ -92,6 +93,8 @@ export const uploadDocument = async (req: AuthRequest, res: Response, next: Next
       userId: req.user.userId,
       title: title || originalname,
       description: description || '',
+      shortDescription: shortDescription || '',
+      imageUrl: imageUrl || '',
       category: category || 'Document',
       fileUrl: `uploads/${uniqueFilename}`,
       fileType: mimetype,
@@ -147,6 +150,8 @@ export const listDocuments = async (req: AuthRequest, res: Response, next: NextF
         id: doc._id,
         title: doc.title,
         description: doc.description,
+        shortDescription: doc.shortDescription || '',
+        imageUrl: doc.imageUrl || '',
         fileUrl: doc.fileUrl,
         fileType: doc.fileType,
         category: doc.category,
@@ -191,6 +196,8 @@ export const getDocument = async (req: AuthRequest, res: Response, next: NextFun
         id: document._id,
         title: document.title,
         description: document.description,
+        shortDescription: document.shortDescription || '',
+        imageUrl: document.imageUrl || '',
         fileUrl: document.fileUrl,
         fileType: document.fileType,
         category: document.category,
@@ -292,4 +299,119 @@ export const updateDocument = async (req: AuthRequest, res: Response, next: Next
     next(error);
   }
 };
+
+/**
+ * Fetch a document publicly by ID (excluding textContent for privacy/bandwidth).
+ */
+export const getPublicDocument = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const document = await Document.findById(req.params.id)
+      .select('-textContent');
+
+    if (!document) {
+      res.status(404).json({ error: 'Document not found' });
+      return;
+    }
+
+    res.status(200).json({ document });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Retrieve related documents from MongoDB in the same category.
+ */
+export const getPublicRelatedDocuments = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const document = await Document.findById(req.params.id);
+    if (!document) {
+      res.status(404).json({ error: 'Document not found' });
+      return;
+    }
+
+    const related = await Document.find({
+      category: document.category,
+      _id: { $ne: document._id },
+    })
+      .select('title category tags fileType createdAt description size status')
+      .limit(4);
+
+    res.status(200).json({ documents: related });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Get reviews list for a document.
+ */
+export const getReviews = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const reviews = await Review.find({ documentId: req.params.id }).sort({ createdAt: -1 });
+    res.status(200).json({ reviews });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Add review to document.
+ */
+export const addReview = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { name, rating, comment } = req.body;
+
+    if (!name || !rating || !comment) {
+      res.status(400).json({ error: 'All fields (name, rating, comment) are required.' });
+      return;
+    }
+
+    const review = new Review({
+      documentId: req.params.id,
+      name,
+      rating: Number(rating),
+      comment,
+    });
+
+    await review.save();
+    res.status(201).json({ message: 'Review added successfully', review });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Public document contextual chat (AI Chat Panel).
+ */
+export const chatWithAgentPublic = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { text, history } = req.body;
+    if (!text) {
+      res.status(400).json({ error: 'Message query is required' });
+      return;
+    }
+
+    const document = await Document.findById(req.params.id);
+    if (!document) {
+      res.status(404).json({ error: 'Document not found' });
+      return;
+    }
+
+    const result = await geminiService.askDocumentQuestionWithFollowUps(
+      document.textContent,
+      history || [],
+      text
+    );
+
+    res.status(200).json({
+      documentId: document._id.toString(),
+      response: result.response,
+      suggestedFollowUp: result.suggestedFollowUp,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 
