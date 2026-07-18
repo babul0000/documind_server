@@ -1,9 +1,30 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const apiKey = process.env.GEMINI_API_KEY;
+let activeInstance: GoogleGenerativeAI | null = null;
 
-if (!apiKey) {
-  console.warn('WARNING: GEMINI_API_KEY is not defined in environment variables. AI features will fail.');
-}
+const getActiveInstance = (): GoogleGenerativeAI => {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+    throw new Error('GEMINI_API_KEY is not defined or is default placeholder.');
+  }
+  if (!activeInstance) {
+    activeInstance = new GoogleGenerativeAI(apiKey);
+  }
+  return activeInstance;
+};
 
-export const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
+// Export genAI as a Proxy that resolves fields dynamically on first access
+export const genAI: any = new Proxy({} as any, {
+  get(target, prop, receiver) {
+    try {
+      const instance = getActiveInstance();
+      const value = Reflect.get(instance, prop, receiver);
+      if (typeof value === 'function') {
+        return value.bind(instance);
+      }
+      return value;
+    } catch (e) {
+      return undefined;
+    }
+  }
+});

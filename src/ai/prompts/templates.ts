@@ -36,10 +36,12 @@ Your output must be a valid JSON object. Do not include any markdown styling lik
 The JSON should contain:
 1. "documentType": The estimated type of document (e.g., Invoice, Resume, Contract, Tutorial, Scientific Paper, etc.)
 2. "suggestedTitle": A highly descriptive title for the document.
-3. "keyTopics": An array of up to 5 major topics discussed.
-4. "entities": An array of key people, organizations, or products mentioned (up to 6 items).
+3. "keyTopics": An array of up to 5 major topics/keywords discussed.
+4. "entities": An array of key people or organizations mentioned (up to 6 items).
 5. "actionItems": An array of any deadlines, tasks, or actionable items found (if none, return empty array).
 6. "dates": Important dates mentioned in the text (if none, return empty array).
+7. "keyPoints": An array of up to 5 core key takeaways or summaries of the points discussed.
+8. "confidenceScore": An estimated extraction confidence score as an integer from 0 to 100 (e.g., 95) based on document formatting and completeness.
 
 Document Content:
 """
@@ -53,7 +55,9 @@ JSON Response Schema:
   "keyTopics": ["string"],
   "entities": ["string"],
   "actionItems": ["string"],
-  "dates": ["string"]
+  "dates": ["string"],
+  "keyPoints": ["string"],
+  "confidenceScore": 95
 }
 `;
 };

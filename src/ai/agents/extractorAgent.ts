@@ -9,6 +9,8 @@ export interface ExtractedInfo {
   entities: string[];
   actionItems: string[];
   dates: string[];
+  keyPoints: string[];
+  confidenceScore: number;
 }
 
 /**
@@ -25,6 +27,8 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
       entities: mock.entities,
       actionItems: mock.actionItems,
       dates: mock.dates,
+      keyPoints: mock.keyPoints,
+      confidenceScore: 92,
     };
   }
 
@@ -35,6 +39,8 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
     entities: [],
     actionItems: [],
     dates: [],
+    keyPoints: [],
+    confidenceScore: 85,
   };
 
   try {
@@ -63,6 +69,8 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
       entities: Array.isArray(parsed.entities) ? parsed.entities : fallback.entities,
       actionItems: Array.isArray(parsed.actionItems) ? parsed.actionItems : fallback.actionItems,
       dates: Array.isArray(parsed.dates) ? parsed.dates : fallback.dates,
+      keyPoints: Array.isArray(parsed.keyPoints) ? parsed.keyPoints : fallback.keyPoints,
+      confidenceScore: typeof parsed.confidenceScore === 'number' ? parsed.confidenceScore : fallback.confidenceScore,
     };
   } catch (error) {
     console.error('Extractor Agent Error:', error);
@@ -74,6 +82,8 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
       entities: mock.entities,
       actionItems: mock.actionItems,
       dates: mock.dates,
+      keyPoints: mock.keyPoints,
+      confidenceScore: 90,
     };
   }
 };
