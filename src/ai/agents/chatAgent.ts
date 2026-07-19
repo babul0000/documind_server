@@ -82,7 +82,7 @@ export const askDocumentQuestion = async (
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = chatPromptTemplate(text, history, currentQuestion);
     const result = await model.generateContent(prompt);
     return result.response.text() || 'I was unable to formulate an answer.';
@@ -116,7 +116,7 @@ export const askDocumentQuestionWithFollowUps = async (
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = chatWithFollowUpsPromptTemplate(text, history, currentQuestion);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

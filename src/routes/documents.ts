@@ -10,6 +10,9 @@ import { upload } from '../middleware/upload';
 const router = Router();
 
 // Publicly accessible endpoints
+router.get('/test-public', (req, res) => {
+  res.json({ success: true, message: 'Public route is fully operational!' });
+});
 router.get('/public-list', listPublicDocuments as any);
 router.post('/public/general/chat-stream', generalChatStream as any);
 router.get('/public/:id', getPublicDocument as any);

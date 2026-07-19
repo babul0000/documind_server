@@ -1,7 +1,20 @@
 import mammoth = require('mammoth');
 
+// Polyfill browser globals required by pdf-parse (pdfjs-dist) in Node.js server environments
+if (typeof (global as any).DOMMatrix === 'undefined') {
+  (global as any).DOMMatrix = class DOMMatrix {};
+}
+if (typeof (global as any).ImageData === 'undefined') {
+  (global as any).ImageData = class ImageData {};
+}
+if (typeof (global as any).Path2D === 'undefined') {
+  (global as any).Path2D = class Path2D {};
+}
+
 // Load pdf-parse using direct CommonJS require to avoid TypeScript module resolution warnings
 const { PDFParse } = require('pdf-parse') as any;
+const { getPath } = require('pdf-parse/worker') as any;
+PDFParse.setWorker(getPath());
 
 /**
  * Extracts raw text from document buffers based on the MIME type.

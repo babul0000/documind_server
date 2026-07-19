@@ -233,7 +233,10 @@ export const getDocument = async (req: AuthRequest, res: Response, next: NextFun
 
     const document = await Document.findOne({
       _id: req.params.id,
-      userId: req.user.userId,
+      $or: [
+        { userId: req.user.userId },
+        { status: 'completed' }
+      ]
     });
 
     if (!document) {
@@ -504,7 +507,7 @@ export const chatWithAgentPublicStream = async (req: Request, res: Response, nex
         throw new Error('Invalid Gemini Key. Use fallback mock.');
       }
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
       const prompt = chatPromptTemplate(document.textContent, formattedHistory, text);
       const resultStream = await model.generateContentStream(prompt);
 
@@ -668,7 +671,7 @@ export const generalChatStream = async (req: Request, res: Response, next: NextF
         throw new Error('Invalid Gemini Key. Use fallback mock.');
       }
 
-      const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
       
       const systemInstruction = `You are DocuMind AI, the official virtual assistant for DocuMind AI - the AI Knowledge Intelligence Platform.
 DocuMind lets users upload PDFs, Word files (DOCX), and text notes (TXT) up to 10MB.

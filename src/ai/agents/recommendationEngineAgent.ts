@@ -24,7 +24,7 @@ export const runRecommendationEngine = async (
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
 
     const documentsInput = documents.map(d => ({
       id: d.id,

@@ -13,7 +13,7 @@ export const generateSummary = async (text: string): Promise<string> => {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = summaryPromptTemplate(text);
     const result = await model.generateContent(prompt);
     return result.response.text() || 'No summary generated.';

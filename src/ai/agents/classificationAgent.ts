@@ -30,7 +30,7 @@ export const classifyDocumentText = async (text: string): Promise<Classification
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = classificationPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

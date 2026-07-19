@@ -44,7 +44,7 @@ export const extractMetadata = async (text: string): Promise<ExtractedInfo> => {
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = extractorPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let rawResponse = result.response.text() || '{}';

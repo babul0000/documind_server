@@ -262,7 +262,7 @@ export const sendMessageStream = async (req: AuthRequest, res: Response, next: N
     }
 
     // 3. Setup Gemini Generative Model Stream
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = chatPromptTemplate(document.textContent, formattedHistory, text);
     const resultStream = await model.generateContentStream(prompt);
 

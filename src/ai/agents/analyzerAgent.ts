@@ -33,7 +33,7 @@ export const analyzeDocumentText = async (text: string): Promise<AnalyzerResult>
   };
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-3.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-3.1-flash-lite' });
     const prompt = analyzerPromptTemplate(text);
     const result = await model.generateContent(prompt);
     let raw = result.response.text() || '{}';

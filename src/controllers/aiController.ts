@@ -24,7 +24,13 @@ export const analyzeDocument = async (req: AuthRequest, res: Response, next: Nex
       return;
     }
 
-    const document = await Document.findOne({ _id: documentId, userId: req.user.userId });
+    const document = await Document.findOne({
+      _id: documentId,
+      $or: [
+        { userId: req.user.userId },
+        { status: 'completed' }
+      ]
+    });
     if (!document) {
       res.status(404).json({ error: 'Document not found' });
       return;
@@ -54,7 +60,13 @@ export const classifyDocument = async (req: AuthRequest, res: Response, next: Ne
       return;
     }
 
-    const document = await Document.findOne({ _id: documentId, userId: req.user.userId });
+    const document = await Document.findOne({
+      _id: documentId,
+      $or: [
+        { userId: req.user.userId },
+        { status: 'completed' }
+      ]
+    });
     if (!document) {
       res.status(404).json({ error: 'Document not found' });
       return;
@@ -84,7 +96,13 @@ export const chatWithAgent = async (req: AuthRequest, res: Response, next: NextF
       return;
     }
 
-    const document = await Document.findOne({ _id: documentId, userId: req.user.userId });
+    const document = await Document.findOne({
+      _id: documentId,
+      $or: [
+        { userId: req.user.userId },
+        { status: 'completed' }
+      ]
+    });
     if (!document) {
       res.status(404).json({ error: 'Document not found' });
       return;
@@ -120,7 +138,13 @@ export const recommendNextSteps = async (req: AuthRequest, res: Response, next: 
     }
 
     // 1. Get active document
-    const document = await Document.findOne({ _id: documentId, userId: req.user.userId });
+    const document = await Document.findOne({
+      _id: documentId,
+      $or: [
+        { userId: req.user.userId },
+        { status: 'completed' }
+      ]
+    });
     if (!document) {
       res.status(404).json({ error: 'Document not found' });
       return;
